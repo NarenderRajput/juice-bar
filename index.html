@@ -1,0 +1,243 @@
+<html>
+    <head>
+        <title>Array Exercise</title>
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
+    <body>
+        <section class="section1" id="menu">
+            <div class="menu">
+                <h1>Juice Bar</h1>
+                <a href="#" id="mango">Mango Shake</a>
+                <a href="#" id="banana">Banana Shake</a>
+                <a href="#" id="orange">Orange Shake</a>
+                <a href="#" id="apple">Apple Shake</a>
+                <a href="#" id="guava">Guava Shake</a>
+                <a href="#" id="papaya">Papaya Shake</a>
+            </div>
+
+            <div class="menu1">
+                <h1>Rates</h1>
+                <div>
+                    <p>50 Rs</p>
+                    <p>40 Rs</p>
+                    <p>40 Rs</p>
+                    <p>60 Rs</p>
+                    <p>40 Rs</p>
+                    <p>50 Rs</p>
+                </div>
+            </div>
+            <img src="./images/vecteezy_photo-a-front-view-fresh-fruit-cocktails-with-fresh-fruit_29283229-removebg-preview.png" alt="">
+        </section>
+
+        <section class="section2" style="display: none;" id="output">
+            <div class="div1">
+                <h1>Here is you juice</h1>
+                <img id="juice" src="" alt="">
+                
+            </div>
+
+            <div class="menu2">
+                <h1>Ingredients</h1>
+                <div id="ing">
+                
+                </div>
+                <div id="price">
+
+                </div>
+            </div>
+            <div class="footer">
+            <img id="fruit_img" src="" alt="">
+            </div>
+            
+        </section>
+        <div class="loader" style="display: none;" id="loader"></div> 
+
+        <script>
+            const mango = document.getElementById("mango");
+            const banana = document.getElementById("banana");
+            const orange = document.getElementById("orange");
+            const apple = document.getElementById("apple");
+            const guava = document.getElementById("guava");
+            const papaya = document.getElementById("papaya");
+            const menu = document.getElementById("menu");
+            const output = document.getElementById("output");
+            const loader = document.getElementById("loader");
+            const ing = document.getElementById('ing');
+            const juice = document.getElementById('juice');
+            const fruit_img = document.getElementById('fruit_img');
+            const price = document.getElementById("price")
+
+            const fruits = {
+                mango:{
+                    ing:["mango","milk","ice","sugar"],
+                    fruits_img:["./images/mango_footer.png"],
+                    juice:"./images/mango_juice.png",
+                    price:"50 Rs",
+                },
+
+                banana:{
+                    ing:["banana","milk","ice","sugar"],
+                    fruits_img:["./images/banana_footer.png"],
+                    juice:"./images/banana_juice.png",
+                    price:"40 Rs",
+                },
+                orange:{
+                    ing:["orange","ice","salt"],
+                    fruits_img:["./images/orange_footer.png"],
+                    juice:"./images/orange_juice.png",
+                    price:"40 Rs",
+                },
+                apple:{
+                    ing:["apple","ice",""],
+                    fruits_img:["./images/apple_footer.png"],
+                    juice:"./images/apple_juice.png",
+                    price:"60 Rs",
+                },
+                guava:{
+                    ing:["guava","milk","ice","sugar"],
+                    fruits_img:["./images/guava_footer.png"],
+                    juice:"./images/guava_juice.png",
+                    price:"40 Rs",
+                },
+                papaya:{
+                    ing:["papaya","milk","ice","sugar"],
+                    fruits_img:["./images/papaya_footer.png"],
+                    juice:"./images/papaya_juice.png",
+                    price:"50 Rs",
+                },
+
+
+            }
+            function hide(element) {
+                element.style.display = "none";
+            }
+
+            function show(element,display) {
+                element.style.display = display;
+            }
+
+            mango.addEventListener("click",function() {
+               hide(menu);
+               show(loader, 'block');
+
+               ing.innerHTML = fruits.mango.ing.join(',');
+               juice.src = fruits.mango.juice;
+               price.innerHTML = fruits.mango.price;
+
+               let i = 0;
+               setInterval(() => {
+                fruit_img.src = fruits.mango.fruits_img[i];
+                //i = i < 1 ? i++ : 0;
+               }, 2000);
+              
+
+               setTimeout(() => {
+                hide(loader);
+                show(output, 'flex')
+               }, 3000); 
+            })
+            banana.addEventListener("click",function() {
+                hide(menu);
+                show(loader,'block')
+                ing.innerHTML = fruits.banana.ing.join(",");
+                juice.src = fruits.banana.juice;
+                price.innerHTML = fruits.banana.price;
+
+                let i = 0;
+                setInterval(() => {
+                    fruit_img.src = fruits.banana.fruits_img[i];
+                    i = i < 2 ? i++ : 0;
+                }, 2000);
+
+                setTimeout(() => {
+                    hide(loader);
+                    show(output,"flex")
+                }, 3000);
+
+            })
+            
+            orange.addEventListener("click",function() {
+                hide(menu);
+               show(loader, 'block');
+
+               ing.innerHTML = fruits.orange.ing.join(',');
+               juice.src = fruits.orange.juice;
+               price.innerHTML = fruits.orange.price;
+
+               let i = 0;
+               setInterval(() => {
+                fruit_img.src = fruits.orange.fruits_img[i];
+                i = i < 2 ? i++ : 0;
+               }, 2000);
+              
+
+               setTimeout(() => {
+                hide(loader);
+                show(output, 'flex')
+               }, 3000); 
+            })
+            apple.addEventListener("click",function() {
+                hide(menu);
+               show(loader, 'block');
+
+               ing.innerHTML = fruits.apple.ing.join(',');
+               juice.src = fruits.apple.juice;
+               price.innerHTML = fruits.apple.price;
+
+               let i = 0;
+               setInterval(() => {
+                fruit_img.src = fruits.apple.fruits_img[i];
+                i = i < 2 ? i++ : 0;
+               }, 2000);
+              
+
+               setTimeout(() => {
+                hide(loader);
+                show(output, 'flex')
+               }, 3000); 
+            })
+            guava.addEventListener("click",function() {
+                hide(menu);
+               show(loader, 'block');
+               
+               ing.innerHTML = fruits.guava.ing.join(',');
+               juice.src = fruits.guava.juice;
+                
+               let i = 0;
+               setInterval(() => {
+                fruit_img.src = fruits.guava.fruits_img[i];
+                i = i < 2 ? i++ : 0;
+               }, 2000);
+              
+               console.log('guava consel', price.innerText, fruits.guava.price)
+               price.innerHTML = fruits.guava.price;
+
+               setTimeout(() => {
+                hide(loader);
+                show(output, 'flex')
+               }, 3000);
+            })
+            papaya.addEventListener("click",function() {
+                console.log("papaya")
+                hide(menu);
+                show(loader,'block')
+                ing.innerHTML = fruits.papaya.ing.join(",");
+                juice.src = fruits.papaya.juice;
+                price.innerHTML = fruits.papaya.price;
+
+                let i = 0;
+                setInterval(() => {
+                    fruit_img.src = fruits.papaya.fruits_img[i];
+                    i = i < 2 ? i++ : 0;
+                }, 2000);
+
+                setTimeout(() => {
+                    hide(loader);
+                    show(output,"flex")
+                }, 3000);
+
+            })
+
+        </script>
+    </body>
+</html>
